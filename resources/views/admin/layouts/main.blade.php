@@ -1,4 +1,4 @@
-{{--https://github.com/ahmedeagle/ecommerce--}}
+{{--https://github.com/ahmedeagle/adminTheme--}}
 
 <!-- opening tags and head-->
 @include('admin/includes/header')
