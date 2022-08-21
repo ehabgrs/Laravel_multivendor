@@ -3,9 +3,37 @@
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
             <li class="nav-item active"><a href=""><i class="la la-mouse-pointer"></i><span
-                        class="menu-title" data-i18n="nav.add_on_drag_drop.main">الرئيسية </span></a>
+                        class="menu-title" data-i18n="nav.add_on_drag_drop.main">{{__('admin/sidebar.home')}} </span></a>
             </li>
-
+			
+			<li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
+                                                                                    data-i18n="nav.templates.main">{{__('admin/sidebar.settings')}}</span></a>
+                <ul class="menu-content">
+                    <li>
+						<a class="menu-item" href="#">{{__('admin/sidebar.shippings')}}</a>
+                        <ul class="menu-content">
+                            <li>
+								<a class="menu-item" href="{{route('edit.shipping.methods','free_shipping')}}">free</a>
+                            </li>
+							<li>
+								<a class="menu-item" href="{{route('edit.shipping.methods','local_shipping')}}">Local</a>
+                            </li>
+							<li>
+								<a class="menu-item" href="{{route('edit.shipping.methods','international_shipping')}}">international</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="menu-item" href="#" >Languages</a>
+                        <ul class="menu-content">
+                            <li><a class="menu-item" href="">English</a>
+                            </li>
+							<li><a class="menu-item" href="">Arabic</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+			<!--
             <li class="nav-item  open ">
                 <a href=""><i class="la la-home"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">لغات الموقع </span>
@@ -1554,6 +1582,8 @@
                     <span class="menu-title" data-i18n="nav.support_documentation.main">Documentation</span>
                 </a>
             </li>
+			
+			-->
         </ul>
     </div>
 </div>
