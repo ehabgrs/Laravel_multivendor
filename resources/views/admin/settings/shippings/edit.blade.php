@@ -45,18 +45,19 @@
                                 
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form" action="{{route('update.shipping.methods',$shipping_method -> id)}}"
-                                              method="PUT"
+                                        <form class="form" action="{{route('update.shipping.methods', $shipping_method -> id )}}"
+                                              method="post"
                                               enctype="multipart/form-data">
                                             @csrf
 											@method('PUT')
                                             <div class="form-body">
                                                <h4 class="form-section"><i class="ft-home"></i> Edit shipping method </h4>
+											   <input type="hidden" name="id" value="{{$shipping_method -> id }}">
                                                <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> Method name </label>
-                                                            <input type="text" value="{{--$vendor -> name--}}" id="name"
+                                                            <input type="text" value="{{$shipping_method -> value}}" id="name"
                                                                    class="form-control"
                                                                    placeholder="  "
                                                                    name="name">
@@ -70,12 +71,29 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> Cost </label>
-                                                            <input type="text" value="{{--$vendor -> cost--}}" id="cost"
+                                                            <input type="number" value="{{$shipping_method -> plain_value}}" id="cost"
                                                                    class="form-control"
                                                                    placeholder="  "
                                                                    name="cost">
                                                             @error("cost")
                                                             <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
+												<div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group mt-1">
+                                                            <input type="checkbox" value="1"
+                                                                   name="status"
+                                                                   id="switcheryColor4"
+                                                                   class="switchery" data-color="success"
+                                                                  
+                                                            <label for="switcheryColor4"
+                                                                   class="card-title ml-1">Active </label>
+
+                                                            @error("status")
+                                                            <span class="text-danger"> </span>
                                                             @enderror
                                                         </div>
                                                     </div>
