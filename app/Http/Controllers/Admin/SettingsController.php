@@ -49,7 +49,7 @@ class SettingsController extends Controller
 		
 		} catch(\Exception $ex) {
 			//reverse all what between DB::beginTransaction() and DB::commit()
-			DB::roolback();
+			DB::rollback();
 			return redirect()->back()->with(['error' => $ex]);
 			
 		}

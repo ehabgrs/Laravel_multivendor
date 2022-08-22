@@ -22,25 +22,29 @@
         <div class="navbar-container content">
             <div class="collapse navbar-collapse" id="navbar-mobile">
                 <ul class="nav navbar-nav mr-auto float-left">
-                    <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs"
-                                                              href="#"><i class="ft-menu"></i></a></li>
-                    <li class="nav-item d-none d-md-block"><a class="nav-link nav-link-expand" href="#"><i
-                                class="ficon ft-maximize"></i></a></li>
+                    <li class="nav-item d-none d-md-block">
+						<a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"> <i class="ft-menu"></i> </a>
+					</li>
+                    <li class="nav-item d-none d-md-block">
+						<a class="nav-link nav-link-expand" href="#"> <i class="ficon ft-maximize"></i> </a>
+					</li>
                 </ul>
                 <ul class="nav navbar-nav float-right">
                     <li class="dropdown dropdown-user nav-item">
                         <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-                <span class="mr-1">Hello
-                  <span
-                      class="user-name text-bold-700">User name</span>
-                </span>
-                            <span class="avatar avatar-online">
-                  <img  style="height: 35px;" src="" alt="avatar"><i></i></span>
+							<span class="mr-1">
+								Hello
+								<span class="user-name text-bold-700">{{auth('admin')->user()->name}}</span>
+							</span>
+							<span class="avatar avatar-online">
+								<img  style="height: 35px;" src="" alt="avatar"><i></i>
+							</span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href=""><i
-                                    class="ft-user"></i> Edit profile </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item" href="{{route('profile.edit')}}"> <i class="ft-user"></i> Edit profile </a>
+							<a class="dropdown-item" href="{{route('profile.password.edit')}}"> <i class="ft-user"></i> Change your password </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href=""><i class="ft-power"></i>Logout </a>
+                            <a class="dropdown-item" href="{{route('admin.logout')}}"><i class="ft-power"></i>Logout </a>
                         </div>
                     </li>
 

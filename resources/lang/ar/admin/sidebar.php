@@ -6,4 +6,5 @@ return [
 	'settings' => 'الضبط',
 	'shippings' => 'التوصيل',
 
+	'language'  => 'اللغة',
 ];
