@@ -9,6 +9,19 @@
 			<li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
                                                                                     data-i18n="nav.templates.main">{{__('admin/sidebar.settings')}}</span></a>
                 <ul class="menu-content">
+                    <li><a class="menu-item" href="#" >{{__('admin/sidebar.language') .' : '. app()->getLocale()}}</a>
+                        <ul class="menu-content">
+						@foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+						    <li> 
+								<a class="menu-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+									{{ $properties['native'] }}
+								</a>
+                            </li>
+						 @endforeach
+                        </ul>
+                    </li>
+                </ul>
+				 <ul class="menu-content">
                     <li>
 						<a class="menu-item" href="#">{{__('admin/sidebar.shippings')}}</a>
                         <ul class="menu-content">
@@ -20,14 +33,6 @@
                             </li>
 							<li>
 								<a class="menu-item" href="{{route('edit.shipping.methods','international_shipping')}}">international</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="menu-item" href="#" >Languages</a>
-                        <ul class="menu-content">
-                            <li><a class="menu-item" href="">English</a>
-                            </li>
-							<li><a class="menu-item" href="">Arabic</a>
                             </li>
                         </ul>
                     </li>

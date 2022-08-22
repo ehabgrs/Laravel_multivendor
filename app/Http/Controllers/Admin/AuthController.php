@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\AdminLogInResquest;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
     public function login()
 	{
@@ -22,5 +22,12 @@ class LoginController extends Controller
 		}
 		
 		return redirect()->back()->with(['error' => 'The email or the password is not correct']);
+	}
+	
+	public function logout()
+	{
+		auth('admin')->logout();
+		return redirect()->route('admin.login');
+		
 	}
 }
