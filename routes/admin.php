@@ -51,10 +51,14 @@ Route::group(
 		//also to add for the name
 		Route::name('admin.')->group(function(){
 			
-			########################start of categories routes #################################
-			Route::resource('categories', CategoriesController::class);
-			Route::get('subcategories','CategoriesController@subcategories_index')->name('categories.subcategories_index');
-			########################End of categories routes #################################
+			Route::group(['middleware' => 'can:categories'], function(){
+				########################start of categories routes #################################
+				Route::resource('categories', CategoriesController::class);
+				Route::get('subcategories','CategoriesController@subcategories_index')->name('categories.subcategories_index');
+				########################End of categories routes #################################
+			});
+			
+			
 			
 			
 			Route::resources([
@@ -79,7 +83,28 @@ Route::group(
 			Route::post('products/store_photos/{id}','ProductController@store_photos')->name('products.store.photos');
 			//////////end productes
 			
-		});
+            
+                 ################################## roles ######################################
+            Route::group(['prefix' => 'roles'], function () {
+                Route::get('/', 'RolesController@index')->name('roles.index');
+                Route::get('create', 'RolesController@create')->name('roles.create');
+                Route::post('store', 'RolesController@store')->name('roles.store'); 
+                Route::get('/edit/{id}', 'RolesController@edit') ->name('roles.edit') ;
+                Route::post('update/{id}', 'RolesController@update')->name('roles.update');
+             });
+            ################################## end roles ######################################
+
+            /**
+             * admins Routes */
+            Route::group(['prefix' => 'users'/* , 'middleware' => 'can:users'*/], function () {
+                Route::get('/', 'UsersController@index')->name('users.index');
+                Route::get('/create', 'UsersController@create')->name('users.create');
+                Route::post('/store', 'UsersController@store')->name('users.store');
+            });
+
+
+
+            });
 		
 
 
