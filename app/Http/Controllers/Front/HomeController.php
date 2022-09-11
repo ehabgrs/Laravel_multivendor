@@ -25,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+		//return request()->getHost();
 		$categories = Category::parent()->select('id','slug')->with(['childrens' => function($q){
 			$q->select('id','parent_id','slug');
 			$q->with(['childrens' => function($q){
