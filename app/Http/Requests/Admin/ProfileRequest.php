@@ -26,7 +26,7 @@ class ProfileRequest extends FormRequest
         return [
 			'id' => 'required|exists:admins',
 			'name'  => 'required',
-			//
+			//we define our current id for unique to not give error that this email used before
 			'email' => 'required|email|unique:admins,email,'. $this->id,
         ];
     }

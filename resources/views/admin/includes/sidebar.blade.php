@@ -2,7 +2,7 @@
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
-            <li class="nav-item active"><a href=""><i class="la la-mouse-pointer"></i><span
+            <li class="nav-item active"><a href="{{route('admin')}}"><i class="la la-mouse-pointer"></i><span
                         class="menu-title" data-i18n="nav.add_on_drag_drop.main">{{__('admin/sidebar.home')}} </span></a>
             </li>
 			
@@ -38,6 +38,123 @@
                     </li>
                 </ul>
             </li>
+			
+			<li class="nav-item">
+				<a href="">
+					<i class="la la-group"></i>
+                    <span class="menu-title " data-i18n="nav.dash.main">Categories</span>
+                </a>
+				
+                <ul class="menu-content ">
+                    <li class="menu-item">
+						<a class="" href="{{route('admin.categories.index')}}"  data-i18n="nav.dash.ecommerce">
+							Main categories 
+							<span class="badge badge badge-danger badge-pill float-right mr-2">{{App\Models\Category::parent() ->count()}}</span>
+						</a>
+                    </li>
+					
+					<li class="menu-item"">
+						<a class="" href="{{route('admin.categories.subcategories_index')}}" data-i18n="nav.dash.ecommerce">
+							Sub categories 
+							<span class="badge badge badge-danger badge-pill float-right mr-2">{{App\Models\Category::child() ->count()}}</span>
+						</a>
+                    </li>
+					
+                    <li><a class="menu-item" href="{{route('admin.categories.create')}}" data-i18n="nav.dash.crypto">
+                             Add new category  </a>
+                    </li>
+                </ul>
+            </li>
+			
+			
+			
+			<li class="nav-item">
+				<a href="">
+					<i class="la la-group"></i>
+                    <span class="menu-title " data-i18n="nav.dash.main">Brands</span>
+                </a>
+				
+                <ul class="menu-content ">
+                    <li class="menu-item">
+						<a class="" href="{{route('admin.brands.index')}}"  data-i18n="nav.dash.ecommerce">
+							All brands
+							<span class="badge badge badge-danger badge-pill float-right mr-2">{{App\Models\Brand::count()}}</span>
+						</a>
+                    </li>
+					
+					
+                    <li><a class="menu-item" href="{{route('admin.brands.create')}}" data-i18n="nav.dash.crypto">
+                             Add new brand  </a>
+                    </li>
+                </ul>
+            </li>
+			
+			<li class="nav-item">
+				<a href="">
+					<i class="la la-group"></i>
+                    <span class="menu-title " data-i18n="nav.dash.main">Tags</span>
+                </a>
+				
+                <ul class="menu-content ">
+                    <li class="menu-item">
+						<a class="" href="{{route('admin.tags.index')}}"  data-i18n="nav.dash.ecommerce">
+							All tags
+							<span class="badge badge badge-danger badge-pill float-right mr-2">{{App\Models\Tag::count()}}</span>
+						</a>
+                    </li>
+					
+					
+                    <li><a class="menu-item" href="{{route('admin.tags.create')}}" data-i18n="nav.dash.crypto">
+                             Add new tag  </a>
+                    </li>
+                </ul>
+            </li>
+			
+			<li class="nav-item">
+				<a href="">
+					<i class="la la-group"></i>
+                    <span class="menu-title " data-i18n="nav.dash.main">Products</span>
+                </a>
+				
+                <ul class="menu-content ">
+                    <li class="menu-item">
+						<a class="" href="{{route('admin.products.index')}}"  data-i18n="nav.dash.ecommerce">
+							All products
+							<span class="badge badge badge-danger badge-pill float-right mr-2">{{App\Models\Product::count()}}</span>
+						</a>
+                    </li>
+					
+					
+                    <li><a class="menu-item" href="{{route('admin.products.create')}}" data-i18n="nav.dash.crypto">
+                             Add new product  </a>
+                    </li>
+                </ul>
+            </li>
+			
+			
+			<li class="nav-item">
+				<a href="">
+					<i class="la la-group"></i>
+                    <span class="menu-title " data-i18n="nav.dash.main">Attributes</span>
+                </a>
+				
+                <ul class="menu-content ">
+                    <li class="menu-item">
+						<a class="" href="{{route('admin.attributes.index')}}"  data-i18n="nav.dash.ecommerce">
+							Products attributes
+							<span class="badge badge badge-danger badge-pill float-right mr-2">{{App\Models\Attribute::count()}}</span>
+						</a>
+                    </li>
+					
+					
+                    <li><a class="menu-item" href="{{route('admin.attributes.create')}}" data-i18n="nav.dash.crypto">
+                             Add attributes  </a>
+                    </li>
+                </ul>
+            </li>
+			
+			
+			
 			<!--
             <li class="nav-item  open ">
                 <a href=""><i class="la la-home"></i>

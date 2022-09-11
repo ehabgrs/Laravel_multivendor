@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+		'mobile',
     ];
 
     /**
@@ -41,4 +42,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+	
+	public function codes()
+	{
+		$this->hasMany(UserMobileVerification::class,'user_id');
+	}
+	
+	public function wishlist()
+	{
+		return $this->belongsToMany(Product::class,'wishlists')->withTimestamps();
+	}
+	
+	public function product_exists_in_wishlist($product_id)
+	{
+		return self::wishlist()->where('product_id', $product_id)->exists();
+	}
+	
+	
 }

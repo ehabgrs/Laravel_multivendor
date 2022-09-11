@@ -6,6 +6,10 @@ use Illuminate\Database\Seeder;
 
 use App\Models\Admin;
 
+use App\Models\Product;
+use App\Models\Tag;
+use App\Models\Brand;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -30,5 +34,10 @@ class DatabaseSeeder extends Seeder
 		//call other seeding class
 		$this->call(SettingDatabaseSeeder::class);
 		
+		\App\Models\Category::factory(5)->create();
+		\App\Models\Category::factory(10)->create();
+		Product::factory(10)->create();
+		Brand::factory(10)->create();
+		Tag::factory(10)->create();
     }
 }

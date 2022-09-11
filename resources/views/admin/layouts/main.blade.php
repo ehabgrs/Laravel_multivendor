@@ -2,7 +2,7 @@
 
 <!-- opening tags and head-->
 @include('admin/includes/header')
-
+@yield('javascript')
 {{--@notify_css--}}
 @yield('style')
 </head>
